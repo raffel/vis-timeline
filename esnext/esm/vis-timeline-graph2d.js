@@ -5,7 +5,7 @@
  * Create a fully customizable, interactive timeline with items and ranges.
  *
  * @version 0.0.0-no-version
- * @date    2020-12-04T22:40:47.116Z
+ * @date    2021-05-02T20:29:32.148Z
  *
  * @copyright (c) 2011-2017 Almende B.V, http://almende.com
  * @copyright (c) 2017-2019 visjs contributors, https://github.com/visjs
@@ -8400,9 +8400,9 @@ class RangeItem extends Item {
     }
 
     if (this.options.rtl) {
-      this.dom.box.style.transform = `translateX(${this.right * -1}px)`;
+      this.dom.box.style.transform = `translateX(${Math.round(this.right) * -1}px)`;
     } else {
-      this.dom.box.style.transform = `translateX(${this.left}px)`;
+      this.dom.box.style.transform = `translateX(${Math.round(this.left)}px)`;
     }
     this.dom.box.style.width = `${boxWidth}px`;
     if (this.whiteSpace) {
@@ -8417,18 +8417,18 @@ class RangeItem extends Item {
       case 'right':
         if (this.options.rtl) {
           const translateX = Math.max((boxWidth - contentWidth), 0) * -1;
-          this.dom.content.style.transform = `translateX(${translateX}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(translateX)}px)`;
         } else {
-          this.dom.content.style.transform = `translateX(${Math.max((boxWidth - contentWidth), 0)}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(Math.max((boxWidth - contentWidth), 0))}px)`;
         }
         break;
 
       case 'center':
         if (this.options.rtl) {
           const translateX = Math.max((boxWidth - contentWidth) / 2, 0) * -1;
-          this.dom.content.style.transform = `translateX(${translateX}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(translateX)}px)`;
         } else {
-          this.dom.content.style.transform = `translateX(${Math.max((boxWidth - contentWidth) / 2, 0)}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(Math.max((boxWidth - contentWidth) / 2, 0))}px)`;
         }
         
         break;
@@ -8453,9 +8453,9 @@ class RangeItem extends Item {
         }
         if (this.options.rtl) {
           const translateX = contentStartPosition * -1;
-          this.dom.content.style.transform = `translateX(${translateX}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(translateX)}px)`;
         } else {
-          this.dom.content.style.transform = `translateX(${contentStartPosition}px)`;
+          this.dom.content.style.transform = `translateX(${Math.round(contentStartPosition)}px)`;
           // this.dom.content.style.width = `calc(100% - ${contentStartPosition}px)`;
         }
     }

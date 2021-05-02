@@ -5,7 +5,7 @@
  * Create a fully customizable, interactive timeline with items and ranges.
  *
  * @version 0.0.0-no-version
- * @date    2020-12-04T22:41:53.040Z
+ * @date    2021-05-02T20:30:30.366Z
  *
  * @copyright (c) 2011-2017 Almende B.V, http://almende.com
  * @copyright (c) 2017-2019 visjs contributors, https://github.com/visjs
@@ -29574,9 +29574,9 @@ var RangeItem = /*#__PURE__*/function (_Item) {
       }
 
       if (this.options.rtl) {
-        this.dom.box.style.transform = "translateX(".concat(this.right * -1, "px)");
+        this.dom.box.style.transform = "translateX(".concat(Math.round(this.right) * -1, "px)");
       } else {
-        this.dom.box.style.transform = "translateX(".concat(this.left, "px)");
+        this.dom.box.style.transform = "translateX(".concat(Math.round(this.left), "px)");
       }
 
       this.dom.box.style.width = "".concat(boxWidth, "px");
@@ -29593,9 +29593,9 @@ var RangeItem = /*#__PURE__*/function (_Item) {
         case 'right':
           if (this.options.rtl) {
             var translateX = Math.max(boxWidth - contentWidth, 0) * -1;
-            this.dom.content.style.transform = "translateX(".concat(translateX, "px)");
+            this.dom.content.style.transform = "translateX(".concat(Math.round(translateX), "px)");
           } else {
-            this.dom.content.style.transform = "translateX(".concat(Math.max(boxWidth - contentWidth, 0), "px)");
+            this.dom.content.style.transform = "translateX(".concat(Math.round(Math.max(boxWidth - contentWidth, 0)), "px)");
           }
 
           break;
@@ -29604,9 +29604,9 @@ var RangeItem = /*#__PURE__*/function (_Item) {
           if (this.options.rtl) {
             var _translateX = Math.max((boxWidth - contentWidth) / 2, 0) * -1;
 
-            this.dom.content.style.transform = "translateX(".concat(_translateX, "px)");
+            this.dom.content.style.transform = "translateX(".concat(Math.round(_translateX), "px)");
           } else {
-            this.dom.content.style.transform = "translateX(".concat(Math.max((boxWidth - contentWidth) / 2, 0), "px)");
+            this.dom.content.style.transform = "translateX(".concat(Math.round(Math.max((boxWidth - contentWidth) / 2, 0)), "px)");
           }
 
           break;
@@ -29631,9 +29631,9 @@ var RangeItem = /*#__PURE__*/function (_Item) {
           if (this.options.rtl) {
             var _translateX2 = contentStartPosition * -1;
 
-            this.dom.content.style.transform = "translateX(".concat(_translateX2, "px)");
+            this.dom.content.style.transform = "translateX(".concat(Math.round(_translateX2), "px)");
           } else {
-            this.dom.content.style.transform = "translateX(".concat(contentStartPosition, "px)"); // this.dom.content.style.width = `calc(100% - ${contentStartPosition}px)`;
+            this.dom.content.style.transform = "translateX(".concat(Math.round(contentStartPosition), "px)"); // this.dom.content.style.width = `calc(100% - ${contentStartPosition}px)`;
           }
 
       }
